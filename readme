@@ -1,0 +1,134 @@
+IAF Human Management System
+Overview
+The IAF Human Management System is a comprehensive web application designed to manage personnel, training, deployments, medical histories, skill assessments, notifications, and reports within an Air Force context. It supports multiple roles including Commanders, HR Managers, Medical Officers, Training Department members, and Ground Staff, each with tailored dashboards and access controls.
+
+Integration with OpenAI provides AI-generated insights for training management.
+
+Features
+Personnel Management: CRUD operations, profiles, and CSV import/export.
+
+Training Management: Manage training sessions, track completion, upload documents.
+
+Deployment Management: Track and manage deployments, location, and status.
+
+Skill Assessment: Record and analyze skills and proficiency levels.
+
+Medical Records: Upload and monitor medical history and impacts.
+
+Notifications: Real-time alerts and mark-as-read capabilities.
+
+Role-Based Dashboards: Custom views and analytics per role.
+
+Multi-Factor Authentication: Google Authenticator integration.
+
+Password Reset: Secure email OTP reset.
+
+Reporting: Generate reports on personnel, training, attrition, and deployments.
+
+OpenAI AI Integration: Generate overviews and insights on training sessions.
+
+File Structure Highlights
+index.php — Main entry and dashboard
+
+login.php, logout.php, register.php — User authentication modules
+
+dashboard.php — Role-specific dashboard content
+
+profile.php, profile_analytics.php — User profile and activity logs
+
+training_management.php — Manage training details with OpenAI integration
+
+deployment_management.php — Deployment handling interface
+
+skill_assessment.php — Skills recording and updates
+
+admin.php — System administration panel
+
+db.php — Database connection setup
+
+database.sql — SQL schema for all tables
+
+openai_api.php — OpenAI API integration function
+
+config.php — Defines constants including API keys
+
+openai_test.php — Basic OpenAI API test script
+
+Setup Instructions
+Database:
+
+Create a MySQL database.
+
+Import database.sql to create necessary tables.
+
+Configure db.php with your database credentials.
+
+API Key Configuration:
+
+Insert your OpenAI API key in config.php:
+
+php
+define('OPENAI_API_KEY', 'your_openai_api_key_here');
+File Permissions:
+
+Ensure uploads/, and its subdirectories, have write permissions for document uploads.
+
+Web Server Requirements:
+
+PHP 7.4+ with cURL enabled.
+
+MySQL or compatible database server.
+
+SMTP configured for sending emails (password reset OTP).
+
+Deploy:
+
+Place application files on your web server.
+
+Access index.php to start.
+
+Usage Notes
+Users register or are created by admin, assigned roles.
+
+Multi-factor authentication is recommended for security.
+
+OpenAI API enhances training management but requires internet and valid API key.
+
+Email must be properly configured for password resets to work.
+
+Use export/import features for bulk personnel data management.
+
+Troubleshooting
+Undefined openai_call function:
+
+Confirm openai_api.php and config.php are included before usage.
+
+File Upload Issues:
+
+Confirm uploads/ directories exist and have correct permissions.
+
+Email Sending Problems:
+
+Verify SMTP server and credentials.
+
+Database Errors:
+
+Check your DB connection and schema import.
+
+OpenAI API Failures:
+
+Validate API key, monitor request quotas.
+
+Security Features
+Passwords hashed with PHP password_hash.
+
+MFA via Google Authenticator.
+
+Use of prepared statements for SQL.
+
+File upload validations on mime-type and size.
+
+Contact & Support
+For support, updates, or issues, contact your system administrator or development team.
+
+This system empowers the Air Force with unified personnel and operations management, enhanced by AI-driven analytics for improved decision-making.
